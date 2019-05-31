@@ -43,8 +43,9 @@ func TestInsertionSort(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := InsertionSort(tt.a); !reflect.DeepEqual(got, tt.b) {
-				t.Errorf("InsertionSort() = %v, want %v", got, tt.b)
+			InsertionSort(tt.a)
+			if !reflect.DeepEqual(tt.a, tt.b) {
+				t.Errorf("wrong value %v, want %v", tt.a, tt.b)
 			}
 		})
 	}
